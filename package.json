@@ -1,0 +1,22 @@
+{
+  "name": "foodfest-lucky-spin",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Food Fest – Smart Lucky Spin System (React + Express + PostgreSQL/Supabase + ESP32)",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c yellow,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:web": "npm --workspace web run dev",
+    "build": "npm --workspace server run build && npm --workspace web run build",
+    "typecheck": "npm --workspace server run typecheck && npm --workspace web run typecheck",
+    "db:migrate": "npm --workspace server run db:migrate",
+    "seed": "npm --workspace server run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
